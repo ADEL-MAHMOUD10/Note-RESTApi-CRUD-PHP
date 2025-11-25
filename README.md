@@ -48,7 +48,7 @@ A lightweight, full-featured REST API for managing notes built with PHP. Include
 
 ### GET - Retrieve All Notes
 ```
-GET http://127.0.0.1:5000
+GET http://127.0.0.1:5000?route=notes
 ```
 **Response:**
 ```json
@@ -190,7 +190,7 @@ curl -X POST http://127.0.0.1:5000 \
 
 **Get all notes:**
 ```bash
-curl http://127.0.0.1:5000
+curl http://127.0.0.1:5000?route=notes
 ```
 
 **Update a note:**
