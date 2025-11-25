@@ -17,11 +17,11 @@
         "content": "Monday: Chest, Tuesday: Back, Wednesday: Legs",
         "created_at": "2025-11-24 21:33:04"
     },
-    "7c010cd9-6656-4af7-bf2c-245c3bf34fc0": {
-        "id": "7c010cd9-6656-4af7-bf2c-245c3bf34fc0",
-        "title": "Test202",
-        "content": "Test8412365",
-        "created_at": "2025-11-25 16:39:37",
-        "updated_at": "2025-11-25 16:57:18"
+    "d2184e35-cbd7-48ce-9ea7-65b33b69f471": {
+        "id": "d2184e35-cbd7-48ce-9ea7-65b33b69f471",
+        "title": "Title01",
+        "content": "Test01",
+        "created_at": "2025-11-25 17:54:46",
+        "updated_at": "2025-11-25 17:54:57"
     }
 }

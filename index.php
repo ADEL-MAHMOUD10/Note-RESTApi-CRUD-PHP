@@ -38,6 +38,11 @@ if ($method === 'OPTIONS') {
 
 switch ($method) {
     case "GET":
+        if (isset($_GET["route"]) && $_GET["route"] === "notes") {
+            http_response_code(200);
+            echo json_encode($notes);
+            break;
+        }
         if (isset($_GET["id"])) {
             $id = $_GET["id"];
             if (isset($notes[$id])) {
@@ -49,8 +54,8 @@ switch ($method) {
             } 
         }
         else{
-            http_response_code(200);
-            echo json_encode($notes);
+        header("Content-Type: text/html");
+        echo file_get_contents("index.html");
         }
         break;
         
