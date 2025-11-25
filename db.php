@@ -11,5 +11,6 @@ function load_notes() {
 
 function save_notes($notes) {
     $file = __DIR__ . "/notes/notes.json";
-    file_put_contents($file, json_encode($notes, JSON_PRETTY_PRINT));
+    $result = file_put_contents($file, json_encode($notes, JSON_PRETTY_PRINT));
+    return $result !== false;
 }
