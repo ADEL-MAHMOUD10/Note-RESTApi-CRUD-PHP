@@ -127,6 +127,9 @@ switch ($method) {
         $title = trim($data["title"] ?? "");
         $content = trim($data["content"] ?? "");
 
+        $title = htmlspecialchars($title, ENT_QUOTES, 'UTF-8');
+        $content = htmlspecialchars($content, ENT_QUOTES, 'UTF-8');
+        
         clean_notes($title, $content);
         
         $notes[$uni_id] = [
