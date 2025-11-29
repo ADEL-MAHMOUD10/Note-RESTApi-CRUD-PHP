@@ -6,7 +6,12 @@ function load_notes() {
         file_put_contents($file, json_encode([]));
     }
     $data = file_get_contents($file);
-    return json_decode($data, true);
+    $notes = json_decode($data, true);
+
+    if(!is_array($notes)){
+        return [];
+    }
+    return $notes;
 }
 
 function save_notes($notes) {

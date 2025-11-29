@@ -43,6 +43,56 @@ switch ($method) {
             echo json_encode($notes);
             break;
         }
+        if (isset($_GET["route"]) && $_GET["route"] === "stats"){
+            if (empty($notes)){
+                http_response_code(404);
+                echo json_encode([
+                    "message" => "No notes found",
+                    "total_notes" => 0,
+                    "oldest_note" => null,
+                    "newest_note" => null,
+                    "average_title_length" => 0,
+                    "average_content_length" => 0
+                ]);
+                break;
+            }
+        }
+        
+        $total_notes = count($notes);
+
+        $oldest_data = min(array_column($notes, 'created_at'));
+        $newest_data = max(array_column($notes, 'created_at'));
+
+        $average_title_length = round(
+        array_sum(array_map('strlen', array_column($notes, 'title'))) / $total_notes,
+        2
+        );
+        $average_content_length = round(
+            array_sum(array_map('strlen', array_column($notes, 'content'))) / $total_notes,
+            2
+        );
+
+        $oldest_note = null;
+        $newest_note = null;
+        
+        foreach($notes as $note){
+            if($note['created_at'] === $oldest_data){
+                $oldest_note = $note;
+            }
+            if($note['created_at'] === $newest_data){
+                $newest_note = $note;
+            }
+        }
+        http_response_code(200);
+        echo json_encode([
+            "total_notes" => $total_notes,
+            "oldest_note" => $oldest_notes,
+            "newest_note" => $newest_notes,
+            "average_title_length" => $average_title_length,
+            "average_content_length" => $average_content_length
+        ]);
+        break;
+
         if (isset($_GET["id"])) {
             $id = $_GET["id"];
             if (isset($notes[$id])) {
@@ -163,3 +213,4 @@ switch ($method) {
         }
         break;
 }
+?>

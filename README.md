@@ -44,6 +44,18 @@ A lightweight, full-featured REST API for managing notes built with PHP. Include
 5. **Open in browser:**
    - Navigate to `http://127.0.0.1:5000`
 
+## Live Demo / Production
+
+This application is also deployed at:
+
+- https://noteapi.infinityfreeapp.com/
+
+Use the same API paths against the production domain. For example:
+
+- Get all notes: `https://noteapi.infinityfreeapp.com/?route=notes`
+- Create a note (POST): `https://noteapi.infinityfreeapp.com/` (JSON body)
+
+
 ## API Endpoints
 
 ### GET - Retrieve All Notes
