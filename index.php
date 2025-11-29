@@ -74,7 +74,7 @@ switch ($method) {
 
         $oldest_note = null;
         $newest_note = null;
-        
+
         foreach($notes as $note){
             if($note['created_at'] === $oldest_data){
                 $oldest_note = $note;
@@ -86,8 +86,8 @@ switch ($method) {
         http_response_code(200);
         echo json_encode([
             "total_notes" => $total_notes,
-            "oldest_note" => $oldest_notes,
-            "newest_note" => $newest_notes,
+            "oldest_note" => $oldest_note,
+            "newest_note" => $newest_note,
             "average_title_length" => $average_title_length,
             "average_content_length" => $average_content_length
         ]);
